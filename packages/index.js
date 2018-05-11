@@ -1,5 +1,5 @@
 // import '../node_modules/weui-wxss/dist/style/weui.wxss';
-import '../weui/weui.css';
+//import '../weui/weui.css';
 import Actionsheet from './actionsheet';
 import Badge from './badge';
 import Cell from './cell';

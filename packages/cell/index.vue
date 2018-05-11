@@ -1,27 +1,27 @@
 <template>
   <a
-    :class="['weui-cell', {'weui-cell_access': !!href}]"
-    :hover-class="!!href ? 'weui-cell_active' : 'none'"
+    :class="['weui-cell', {'weui-cell_access': !!link}]"
+    :hover-class="!!link ? 'weui-cell_active' : 'none'"
     @click="$emit('click', $event)"
-    :href="href"
+    :href="link"
   >
     <div class="weui-cell_hd">
       <!-- <slot name="icon"> -->
         <img
           class="weui-cell__icon"
-          :src="iconSrc"
-          v-if="iconSrc"
+          :src="icon"
+          v-if="icon"
         />
       <!-- </slot> -->
     </div>
     <div class="weui-cell__bd">
       <!-- <slot> -->
-        <span v-text="content" />
+        <span v-text="title" />
       <!-- </slot> -->
     </div>
-    <div :class="['weui-cell__ft', {'weui-cell__ft_in-access': !!href}]">
+    <div :class="['weui-cell__ft', {'weui-cell__ft_in-access': !!link}]">
       <!-- <slot name="label"> -->
-        <span v-text="label"/>
+        <span v-text="value"/>
       <!-- </slot> -->
     </div>
   </a>
@@ -31,10 +31,10 @@
 export default {
   name: 'MpCell',
   props: {
-    content: String,
-    iconSrc: String,
-    label: String,
-    href: String,
+    title: String,
+    icon: String,
+    value: String,
+    link: String,
   },
 };
 </script>
