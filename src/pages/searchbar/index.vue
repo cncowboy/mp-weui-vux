@@ -5,7 +5,7 @@
       <div class="page__desc">搜索栏</div>
     </div>
     <div class="page__bd">
-      <mp-search @change="onSearchChange" @confirm="onSearchConfirm" />
+      <mp-search @on-change="onSearchChange" @on-submit="onSearchConfirm" @on-cancel="onCancel"/>
       <div
         class="weui-cells searchbar-result"
         v-if="!!searchValue"
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import mpSearch from '../../../packages/search';
+import MpSearch from '../../../packages/search';
 
 export default {
   data() {
@@ -36,7 +36,7 @@ export default {
     };
   },
   components: {
-    mpSearch,
+    MpSearch,
   },
   methods: {
     onSearchChange(value) {
@@ -45,6 +45,9 @@ export default {
     },
     onSearchConfirm(value) {
       this.$toast(`onSearchConfirm:${value}`);
+    },
+    onCancel() {
+      this.$toast('cancel');
     },
   },
 };

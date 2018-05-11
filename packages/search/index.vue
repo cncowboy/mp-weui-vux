@@ -8,7 +8,7 @@
           size="14"
         />
         <input
-          @confirm="$emit('confirm', currentValue)"
+          @confirm="$emit('on-submit', currentValue)"
           class="weui-search-bar__input"
           :confirm-type="confirmType"
           :placeholder="placeholder"
@@ -17,7 +17,7 @@
           type="text"
         />
         <div
-          @click="currentValue = ''"
+          @click="doClear"
           class="weui-icon-clear"
           v-if="!!currentValue"
         >
@@ -44,7 +44,7 @@
       </label>
     </div>
     <div
-      @click="currentValue = '', visible = false"
+      @click="doCancel"
       class="weui-search-bar__cancel-btn"
       v-text="cancelText"
       v-if="visible"
@@ -78,11 +78,22 @@ export default {
   },
   watch: {
     currentValue(value) {
-      this.$emit('input', value);
-      this.$emit('change', value);
+      this.$emit('on-input', value);
+      this.$emit('on-change', value);
     },
     value(value) {
       this.currentValue = value;
+    },
+  },
+  methods: {
+    doClear() {
+      this.currentValue = '';
+      this.$emit('on-clear');
+    },
+    doCancel() {
+      this.currentValue = '';
+      this.visible = false;
+      this.$emit('on-cancel');
     },
   },
 };

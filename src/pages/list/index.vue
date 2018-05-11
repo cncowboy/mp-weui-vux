@@ -80,8 +80,8 @@
 </template>
 
 <script>
-import mpCellGroup from '../../../packages/cell-group';
-import mpCell from '../../../packages/cell';
+import MpCellGroup from '../../../packages/cell-group';
+import MpCell from '../../../packages/cell';
 import base64 from '../../base64';
 
 export default {
@@ -90,7 +90,7 @@ export default {
       icon: base64.icon20,
     };
   },
-  components: { mpCell, mpCellGroup },
+  components: { MpCell, MpCellGroup },
 };
 </script>
 
