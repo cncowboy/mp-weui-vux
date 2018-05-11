@@ -35,6 +35,7 @@ export default {
     icon: String,
     value: String,
     link: String,
+    'is-link': Boolean,
   },
 };
 </script>
